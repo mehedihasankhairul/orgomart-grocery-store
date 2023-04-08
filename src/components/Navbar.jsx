@@ -2,9 +2,17 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import icon from "../assets/images/food.png";
 import { BsBagCheckFill } from "react-icons/bs";
+import useStore from "../store";
 
 const NavBar = () => {
   const [isExpanded, toggleExpansion] = useState(false);
+  const cart = useStore((state) => state.cart);
+  const quantity = cart.reduce((acc, item) => acc + item.quantity, 0);
+
+  const showCart = () => {
+    const cart = document.getElementById("cart");
+    cart.classList.toggle("invisible");
+  };
 
   return (
     <nav className="flex sticky top-0 z-50 items-center justify-between flex-wrap bg-green-500 p-6">
@@ -31,11 +39,7 @@ const NavBar = () => {
         } w-full block flex-grow items-center lg:flex lg:items-center lg:w-auto`}
       >
         <div className="text-sm lg:flex-grow items-center">
-          <Link
-            to="/"
-            href="#responsive-header"
-            className="block mt-4 lg:inline-block lg:mt-0 text-teal-100 font-semibold hover:text-white mr-4"
-          >
+          <Link to="/" className="block mt-4 lg:inline-block lg:mt-0 text-teal-100 font-semibold hover:text-white mr-4">
             Home
           </Link>
           <Link
@@ -46,32 +50,31 @@ const NavBar = () => {
           </Link>
           <Link
             to="category"
-            href="#responsive-header"
             className="block mt-4 lg:inline-block lg:mt-0 mr-4 text-teal-100 font-semibold hover:text-white"
           >
             Category
           </Link>
-          <a
-            href="#responsive-header"
+          <Link
+            to="checkout"
             className="block mt-4 lg:inline-block lg:mt-0 mr-4 text-teal-100 font-semibold hover:text-white"
           >
-            Bookings
-          </a>
-          <a
-            href="#responsive-header"
+            Checkout
+          </Link>
+          <Link
+            to="contact"
             className="block mt-4 lg:inline-block lg:mt-0 mr-4 text-teal-100 font-semibold hover:text-white"
           >
             Contacts
-          </a>
+          </Link>
         </div>
         <div>
           <a
             href="#"
             className="inline-block text-sm px-4 py-2 leading-none border rounded font-semibold text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
           >
-            <div className="flex flex-row">
+            <div onClick={showCart} className="flex flex-row">
               <BsBagCheckFill className="text-2xl hover:text-green-500" />
-              <span className="text-xs font-semibold p-2">{}</span>
+              <span className="text-xs font-semibold p-2">{quantity}</span>
             </div>
           </a>
         </div>

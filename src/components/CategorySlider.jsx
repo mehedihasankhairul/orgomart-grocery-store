@@ -1,15 +1,13 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
+import { Autoplay, Pagination } from "swiper";
 
 import useStore from "../store";
-import Cart from "./Cart";
 
 const CategorySlider = () => {
   const categories = useStore((state) => state.categories);
 
   return (
     <>
-      <Cart />
       <div className="flex flex-col ">
         <h1 className="font-semibold text-2xl p-3">Categories</h1>
       </div>
@@ -18,6 +16,10 @@ const CategorySlider = () => {
         <Swiper
           slidesPerView={5}
           spaceBetween={10}
+          autoplay={{
+            delay: 1000,
+            disableOnInteraction: false,
+          }}
           pagination={{
             clickable: true,
           }}
@@ -39,7 +41,7 @@ const CategorySlider = () => {
               spaceBetween: 50,
             },
           }}
-          modules={[Pagination]}
+          modules={[Pagination, Autoplay]}
           className="mySwiper"
         >
           <div className="flex flex-row items-center ">

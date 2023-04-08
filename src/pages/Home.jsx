@@ -1,4 +1,6 @@
+import Cart from "../components/Cart";
 import CategorySlider from "../components/CategorySlider";
+import Contact from "../components/Contact";
 import HeroSection from "../components/HeroSection";
 import Products from "../components/Products";
 
@@ -8,6 +10,7 @@ const Home = () => (
     <main className="flex-grow container mx-auto">
       <CategorySlider />
       <Products />
+      <Contact />
     </main>
   </div>
 );
