@@ -111,7 +111,7 @@ const Checkout = () => {
         </div>
         <div className="mt-4">
           <button className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" type="submit">
-            $3.00
+            Pay
           </button>
         </div>
       </form>
