@@ -15,7 +15,7 @@ const ProductCard = ({ product, addToCart }) => (
     </div>
     {/* add to cart  */}
     <div className="flex items-center justify-between">
-      <p className="font-semibold text-sm">Tk 20.00</p>
+      <p className="font-semibold text-sm">Tk {product.price}</p>
       <BsFillCartPlusFill onClick={() => addToCart(product)} className="text-2xl mr-2 hover:text-green-500" />
     </div>
   </div>
