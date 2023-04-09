@@ -49,10 +49,10 @@ const NavBar = () => {
             Products
           </Link>
           <Link
-            to="category"
+            to="categories"
             className="block mt-4 lg:inline-block lg:mt-0 mr-4 text-teal-100 font-semibold hover:text-white"
           >
-            Category
+            Categories
           </Link>
           <Link
             to="checkout"
